@@ -11,11 +11,11 @@ public class Conecta4 {
         //bucle del juego
         while (true) {
             int columna;
-                if (turnoJ1) {
-                    columna = getColumna(1); // Turno del jugador 1
-                } else {
-                    columna = getColumna(2); // Turno del jugador 2
-                }
+            if (turnoJ1) {
+                columna = getColumna(1, tablero); // Turno del jugador 1
+            } else {
+                columna = getColumna(2, tablero); // Turno del jugador 2
+            }
             actualizarTablero(tablero, columna, ficha);
             turnoJ1 = !turnoJ1; // Cambia el turno
         }
@@ -23,15 +23,15 @@ public class Conecta4 {
         
         
 
-        public static int getColumna (int jugador){
+        public static int getColumna (int jugador, int[][] tablero){
             Scanner scanner = new Scanner(System.in);
             int columna = -1;
 
-            while (columna < 0 || columna > 6) {
-                System.out.println("Jugador 1, elige la columna donde insertar tu ficha: 0, 1, 2, 3, 4, 5 o 6");
+            while (columna < 1 || columna > 6) {
+                System.out.println("Jugador 1, elige la columna donde insertar tu ficha: 1, 2, 3, 4, 5, 6 o 7");
                 columna = scanner.nextInt();
     
-                if (columna < 0 || columna > 6) {
+                if (columna < 0 || columna > 6 || tablero[0][columna] != 0) {
                     System.out.println("Error en la columna. Debes elegir entre la 0 y la 6.");
                 }
             }
@@ -42,7 +42,10 @@ public class Conecta4 {
 
 
         public static void actualizarTablero(int[][] tablero, int columna, String ficha){
-            //aqui lógica
+            for (int i = 0; i < tablero.length; i++){
+                for (int j = 0; j < tablero[i].length; j++){
+                    System.out.print("[" + ficha + "]");
+                }
         }
 
         
@@ -57,3 +60,4 @@ public class Conecta4 {
             }
             System.out.println(""); */
     }
+}
