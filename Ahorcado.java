@@ -35,7 +35,7 @@ public class Ahorcado {
         int intentosMaximos = 6;  
         boolean palabraAcertada = false;  
         String stringsConFallos = ""; 
-
+        
         while (numErrores < intentosMaximos && !palabraAcertada) {
             System.out.println("Palabra: " + new String(progreso));
             System.out.println("Introduce una letra: ");
@@ -58,6 +58,7 @@ public class Ahorcado {
 
             if (acierto) {
                 System.out.println("¡Adivinaste una letra!");
+                System.out.println("Ya has usado: " + stringsConFallos);
             } else {
                 if (!stringsConFallos.contains(String.valueOf(letra))) {
                     stringsConFallos += letra;
@@ -95,3 +96,4 @@ public class Ahorcado {
         scanner.close();
     }
 }
+
