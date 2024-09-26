@@ -1,63 +1,75 @@
-
 import java.util.Scanner;
 
 public class Conecta4 {
     public static void main(String[] args) {
-        
-        int[][] tablero = new int [6][7];
-        String ficha = new String();
-        boolean turnoJ1 = true; //para que comience con el jugador 1
+        int[][] tablero = new int[6][7];
+        int jugador1 = 1;
+        int jugador2 = 2;
+        boolean turnoJ1 = true; // para que comience con el jugador 1
+        Scanner scanner = new Scanner(System.in);
 
-        //bucle del juego
+        // Lógica del juego:
         while (true) {
             int columna;
-            if (turnoJ1) {
-                columna = getColumna(1, tablero); // Turno del jugador 1
-            } else {
-                columna = getColumna(2, tablero); // Turno del jugador 2
+            boolean fichaInsertada = false; // Variable para controlar si se inserta ficha
+
+            while (!fichaInsertada) { // Mantener el turno del mismo jugador hasta que se inserte una ficha
+                if (turnoJ1) {
+                    System.out.println("Turno del jugador 1:");
+                    columna = getColumna(scanner, 1, tablero); // Turno del jugador 1
+                    fichaInsertada = actualizarTablero(tablero, columna, jugador1); // Actualiza si se inserta ficha
+                    if (fichaInsertada) {
+                        imprimirTablero(tablero);
+                        turnoJ1 = false; // Cambia el turno solo si se inserta ficha
+                    }
+                } else {
+                    System.out.println("Turno del jugador 2:");
+                    columna = getColumna(scanner, 2, tablero); // Turno jugador 2
+                    fichaInsertada = actualizarTablero(tablero, columna, jugador2); // Actualiza si se inserta ficha
+                    if (fichaInsertada) {
+                        imprimirTablero(tablero);
+                        turnoJ1 = true; // Cambia el turno solo si se inserta la ficha
+                    }
+                }
             }
-            actualizarTablero(tablero, columna, ficha);
-            turnoJ1 = !turnoJ1; // Cambia el turno
         }
     }
-        
-        
 
-        public static int getColumna (int jugador, int[][] tablero){
-            Scanner scanner = new Scanner(System.in);
-            int columna = -1;
-
-            while (columna < 1 || columna > 6) {
-                System.out.println("Jugador 1, elige la columna donde insertar tu ficha: 1, 2, 3, 4, 5, 6 o 7");
-                columna = scanner.nextInt();
-    
-                if (columna < 0 || columna > 6 || tablero[0][columna] != 0) {
-                    System.out.println("Error en la columna. Debes elegir entre la 0 y la 6.");
-                }
+    public static boolean actualizarTablero(int[][] tablero, int columna, int valorFichaJugador) {
+        // Verifica desde la última fila hacia arriba para encontrar un espacio vacío
+        for (int i = tablero.length - 1; i >= 0; i--) {
+            if (tablero[i][columna] == 0) {
+                tablero[i][columna] = valorFichaJugador;
+                return true; // La ficha fue insertada correctamente
             }
-            scanner.close();
-            return columna;
         }
-        
+        System.out.println("La columna está llena, elige otra."); // Mensaje cuando la columna está llena
+        return false; // La columna estaba llena, no se pudo insertar
+    }
 
+    public static int getColumna(Scanner scanner, int jugador, int[][] tablero) {
+        int columna = -1;
 
-        public static void actualizarTablero(int[][] tablero, int columna, String ficha){
-            for (int i = 0; i < tablero.length; i++){
-                for (int j = 0; j < tablero[i].length; j++){
-                    System.out.print("[" + ficha + "]");
-                }
-        }
+        // Repite hasta que el jugador elija una columna válida
+        while (columna < 0 || columna > 6) {
+            System.out.print("Elige la columna donde insertar tu ficha: 0, 1, 2, 3, 4, 5 o 6: ");
+            columna = scanner.nextInt();
 
-        
-        /*pedazos de codigo de pruebas:
-        String fichaJ1 = "o";
-        String fichaJ2 = "x"; //meter estos 2 en una funcion para la ficha
-
-        System.out.println("");
-        for (int i = 0; i < tablero.length; i++){
-            for (int j = 0; j < tablero[i].length; j++){
-                System.out.print("[" + ficha + "]");
+            // Verifica si la columna está fuera de rango
+            if (columna < 0 || columna > 6) {
+                System.out.println("Error en la columna. Debes elegir entre la 0 y la 6.");
+                columna = -1; // Reinicia la selección
             }
-            System.out.println(""); */
+        }
+        return columna;
+    }
+
+    public static void imprimirTablero(int[][] tablero) {
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                System.out.print(tablero[i][j] + " | ");
+            }
+            System.out.println();
+        }
     }
 }
