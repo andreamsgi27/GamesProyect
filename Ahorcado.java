@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Ahorcado {
 
+    
     public static void dibujarAhorcado(int numErrores) {
         String[] dibujoAhorcado = {
                 "+---+\n    |\n    |\n    |\n   ===",
