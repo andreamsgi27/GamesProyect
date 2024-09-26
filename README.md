@@ -1,6 +1,6 @@
 "# ProyectoGames"
 <h1>Instrucciones</h1>
-
+<br>
 <strong>Juego Conecta 4:</strong>
 <hr>
 
@@ -12,7 +12,7 @@ Automáticamente el juego empieza con el turno del jugador 1, el cual le pedirá
   
 Hay posibilidad de repetir el juego al final.
 
-
+<br>
 <strong>Juego Adivina el número:</strong>
 <hr>
 
@@ -23,7 +23,7 @@ Te indicará para guiarte si el número random es mayor o menor que el que has p
 Podrás volver a jugar las veces que quieras cuando termine el juego.
 
 
-
+<br>
 <strong>Juego Ahorcado:</strong>
 <hr>
 
