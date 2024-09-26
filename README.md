@@ -19,3 +19,23 @@ En este juego, el ordenador te propondrá adivinar un número random entre el 0 
 Te indicará para guiarte si el número random es mayor o menor que el que has puesto y además, llevara un conteo de los intentos que llevas para acertarlo.
   
 Podrás volver a jugar las veces que quieras cuando termine el juego.
+
+
+
+<strong>Ahorcado:</strong>
+
+Se seleccionará una entre 23 palabras posibles y la consola te pedirá que introduzcas una letra.
+
+Verás el símbolo _ por cada letra que forma la palabra a descifrar.
+
+Escribe una letra y pulsa intro para ver si has tenido suerte.
+
+Si introduces una letra contenida en la palabra a descifrar se revelarán las posiciones donde aparece dicha letra.
+
+Por otro lado, si la letra no forma parte de la palabra aparecerá un dibujo de una persona en la horca, así como las letras que has utilizado y no aparecen en la palabra. 
+
+Si introduces una letra repetida o un número, no contará como fallo.
+
+¡Tienes un máximo de 6 fallos para adivinar la palabra o el monigote será ahorcado!
+
+No te preocupes, ganes o pierdas el juego te preguntará si quieres intentarlo otra vez (pulsando s y luego intro)
