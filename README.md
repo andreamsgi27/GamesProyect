@@ -2,6 +2,7 @@
 <h1>Instrucciones</h1>
 
 <strong>Juego Conecta 4:</strong>
+<hr>
 
 Las fichas del jugador 1 serán unos, y las del jugador 2 serán doses.
   
@@ -13,6 +14,7 @@ Hay posibilidad de repetir el juego al final.
 
 
 <strong>Juego Adivina el número:</strong>
+<hr>
 
 En este juego, el ordenador te propondrá adivinar un número random entre el 0 y el 100, el cual tendrás que ir introduciendo.
   
@@ -22,7 +24,8 @@ Podrás volver a jugar las veces que quieras cuando termine el juego.
 
 
 
-<strong>Ahorcado:</strong>
+<strong>Juego Ahorcado:</strong>
+<hr>
 
 Se seleccionará una entre 23 palabras posibles y la consola te pedirá que introduzcas una letra.
 
