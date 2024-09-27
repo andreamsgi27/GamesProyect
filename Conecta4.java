@@ -56,9 +56,10 @@ public class Conecta4 {
             // Preguntar si se quiere jugar de nuevo solo al final
             System.out.print("¿Quieres jugar de nuevo? (si/no): ");
             jugarDeNuevo = scanner.next().equalsIgnoreCase("si");
+            if (jugarDeNuevo == true) {Juegos.main(args);} else {break;}
 
         } while (jugarDeNuevo); // Repetir si el usuario decide jugar de nuevo
-        
+        System.out.println("Gracias por Jugar!");
         scanner.close(); // Cerrar el scanner al final
     }
 
