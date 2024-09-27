@@ -16,7 +16,7 @@ public class Juegos {
                 elegirJuego = scanner.nextInt();
                 
                 if (elegirJuego == 1) {
-                    Ahorcado.jugar(scanner, random);
+                    Ahorcado.main(args);
                 } else if (elegirJuego == 2) {
                     Conecta4.main(args);
                 } else if (elegirJuego == 3) {
